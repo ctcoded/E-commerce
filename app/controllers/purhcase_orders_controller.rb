@@ -1,0 +1,2 @@
+class PurhcaseOrdersController < ApplicationController
+end
