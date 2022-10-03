@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :inventories
   resources :addresses
   resources :contacts
   resources :vendors
