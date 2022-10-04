@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
   
-  resources :inventories
-  resources :addresses
-  resources :contacts
-  resources :vendors
-  resources :purhcase_orders
-  resources :inventory_items
-  resources :users
-  resources :items
+  # resources :addresses
+  # resources :contacts
+  # resources :vendors
+  # resources :purhcase_orders
+  resources :users, only: [:index, :show, :create]
+  resources :inventories, only: [:index, :show]
+  resources :items, only: [:index, :show, :create]
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
-  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  
+  get '/users/:id/inventories/:id/items', to: 'inventories#items'
+
+
+  
 end
+ 
