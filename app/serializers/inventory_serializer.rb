@@ -1,3 +1,4 @@
 class InventorySerializer < ActiveModel::Serializer
-  attributes :id, :business
+  attributes :id
+  has_one :item
 end
