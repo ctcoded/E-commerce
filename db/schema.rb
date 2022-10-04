@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_03_204220) do
+ActiveRecord::Schema.define(version: 2022_10_03_222643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,14 @@ ActiveRecord::Schema.define(version: 2022_10_03_204220) do
 
   create_table "inventories", force: :cascade do |t|
     t.string "business_name"
-    t.integer "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_inventories_on_user_id"
   end
 
-  create_table "inventory_items", force: :cascade do |t|
-    t.integer "inventory_id"
+  create_table "items", force: :cascade do |t|
+    t.bigint "inventory_id", null: false
     t.string "name"
     t.string "description"
     t.string "vendor"
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_204220) do
     t.integer "total_sold"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["inventory_id"], name: "index_items_on_inventory_id"
   end
 
   create_table "purhcase_orders", force: :cascade do |t|
@@ -77,4 +79,6 @@ ActiveRecord::Schema.define(version: 2022_10_03_204220) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "inventories", "users"
+  add_foreign_key "items", "inventories"
 end

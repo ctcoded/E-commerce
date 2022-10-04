@@ -1,7 +1,7 @@
-class CreateInventoryItems < ActiveRecord::Migration[6.1]
+class CreateItems < ActiveRecord::Migration[6.1]
   def change
-    create_table :inventory_items do |t|
-      t.integer :inventory_id
+    create_table :items do |t|
+      t.belongs_to :inventory, null: false, foreign_key: true
       t.string :name
       t.string :description
       t.string :vendor
