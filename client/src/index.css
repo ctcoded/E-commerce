@@ -5,9 +5,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: red;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#banner-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+}
+
+.homeContainer {
+  margin: auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.aboutInventoryApp {
+  margin: auto;
+  font-size: 20px;
+}
+
+.home-header {
+  font-size: 30px
 }
