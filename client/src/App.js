@@ -13,7 +13,7 @@ import Inventory from "./Inventory"
  
 function App() {
  const [user, setUser] = useState(null)
- // const [inventory, setInventory] = useState([])
+ const [inventory, setInventory] = useState([])
  useEffect(() => {
    fetch("/me")
      .then((r) => {
@@ -23,11 +23,16 @@ function App() {
      });
  }, []);
  
- // useEffect(() => {
- //   fetch("/inventories")
- //     .then((r) => r.json())
- //     .then((inventories) => setInventory(inventories))
- // }, [])
+ useEffect(() => {
+  if (user !== null) {
+   fetch("/inventories")
+     .then((r) => r.json())
+     .then((inventories) => setInventory(inventories))
+  }
+ }, [user])
+
+ console.log(inventory)
+
  return (
   <div>
     <Router >
@@ -36,7 +41,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage user={user}/>}/>
           <Route path="/purhcaseOrders" element={<PurchaseOrders />}/>
-          <Route path="/Inventory" element={<Inventory user={user}/>}/>
+          <Route path="/Inventory" element={<Inventory user={user} inventories={inventory}/>}/>
           <Route path="/signup" element={<SignUpForm setUser={setUser} />}/>
           <Route path="/login" element={<Login setUser={setUser} />} />
         </Routes>
