@@ -2,9 +2,7 @@ import React from "react"
 import { Dropdown } from "semantic-ui-react"
 
 function Inventory({user}) {
-    if(user) {
-        return <h1>Hello {user.username} Inventory</h1>
-    } 
+    return <h1>Hello {user.username} Inventory</h1>
 }
 
 

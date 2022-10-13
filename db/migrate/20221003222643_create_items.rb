@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.belongs_to :inventory, null: false, foreign_key: true
       t.string :name
       t.string :description
-      t.string :vendor
+      t.belongs_to :vendor, null: false, foreign_key: true
       t.string :image
       t.integer :on_hand
       t.integer :committed

@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_03_222643) do
+ActiveRecord::Schema.define(version: 2022_10_13_221711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
+    t.bigint "vendor_id", null: false
     t.string "street_1"
     t.string "street_2"
     t.string "city"
@@ -24,14 +25,16 @@ ActiveRecord::Schema.define(version: 2022_10_03_222643) do
     t.string "country"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["vendor_id"], name: "index_addresses_on_vendor_id"
   end
 
   create_table "contacts", force: :cascade do |t|
+    t.bigint "address_id"
     t.string "phone"
-    t.string "address"
     t.string "fax"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_contacts_on_address_id"
   end
 
   create_table "inventories", force: :cascade do |t|
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_222643) do
     t.bigint "inventory_id", null: false
     t.string "name"
     t.string "description"
-    t.string "vendor"
+    t.bigint "vendor_id", null: false
     t.string "image"
     t.integer "on_hand"
     t.integer "committed"
@@ -54,13 +57,15 @@ ActiveRecord::Schema.define(version: 2022_10_03_222643) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["inventory_id"], name: "index_items_on_inventory_id"
+    t.index ["vendor_id"], name: "index_items_on_vendor_id"
   end
 
-  create_table "purhcase_orders", force: :cascade do |t|
-    t.string "vendor"
-    t.string "item_notes"
+  create_table "purchase_orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "order_notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_purchase_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,13 +77,13 @@ ActiveRecord::Schema.define(version: 2022_10_03_222643) do
 
   create_table "vendors", force: :cascade do |t|
     t.string "name"
-    t.string "contact"
-    t.string "order_history"
-    t.string "payment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "addresses", "vendors"
   add_foreign_key "inventories", "users"
   add_foreign_key "items", "inventories"
+  add_foreign_key "items", "vendors"
+  add_foreign_key "purchase_orders", "users"
 end

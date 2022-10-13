@@ -24,10 +24,10 @@ function App() {
  }, []);
  
  useEffect(() => {
-  if (user !== null) {
-   fetch("/inventories")
+  if (user != null) {
+   fetch(`/inventories/`)
      .then((r) => r.json())
-     .then((inventories) => setInventory(inventories))
+     .then((inventories) => console.log(inventories))
   }
  }, [user])
 
