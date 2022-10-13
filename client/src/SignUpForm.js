@@ -7,14 +7,15 @@ function SignUpForm({setUser}) {
    const [businessName, setBusinessName] = useState("") 
    function handleSubmit(e) {
        e.preventDefault();
+       const user = {
+        username,
+        password,
+        businessName
+       }
            fetch("/signup", {
                method: 'POST',
                headers:{'Content-Type': 'application/json'},
-               body:JSON.stringify({
-                   username,
-                   password,
-                   businessName,
-               }),
+               body:JSON.stringify( user ),
            })
            .then((r) => {
                if (r.ok) {
