@@ -4,8 +4,7 @@ import {Button, Form, Dropdown, Input, Icon, TextArea, Label, Message } from 'se
 function SignUpForm({setUser}) {
    const [username, setUsername] = useState("")
    const [password, setPassword] = useState("")
-   // const [name, setName] = useState("")
- 
+   const [businessName, setBusinessName] = useState("") 
    function handleSubmit(e) {
        e.preventDefault();
            fetch("/signup", {
@@ -14,6 +13,7 @@ function SignUpForm({setUser}) {
                body:JSON.stringify({
                    username,
                    password,
+                   businessName,
                }),
            })
            .then((r) => {
@@ -46,6 +46,17 @@ function SignUpForm({setUser}) {
                        id="password"
                        value={password}
                        onChange={(event) => setPassword(event.target.value)}
+                   />
+               </Form.Field>
+               <Form.Field>
+                   <Label color="blue" size="huge" pointing="below" htmlFor="business_name">Business Name</Label>
+                   <Input
+                       size="huge"
+                       placeholder="Business Name"
+                       type="text"
+                       id="business_name"
+                       value={businessName}
+                       onChange={(event) => setBusinessName(event.target.value)}
                    />
                </Form.Field>
           
