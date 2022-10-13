@@ -8,7 +8,7 @@
 puts "Seeding users..."
 u1 = User.create(username: "cesart123", password_digest: "pwssuck")
 u2 = User.create(username: "samb345", password_digest: "planningpro")
-# u3 = User.create(username: "simon987", password_digest: "musicjam")
+u3 = User.create(username: "simon987", password_digest: "musicjam")
 puts "✅ Done seeding profiles!"
 
 puts "Seeding Inventories..."

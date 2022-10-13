@@ -1,6 +1,6 @@
 import React from "react";
 import {useState, useEffect} from "react";
-import {Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 // import { Header} from 'semantic-ui-react'
 // import webLogo from './public/mtnlogo.jpg'
 import NavBar from './NavBar';
@@ -8,6 +8,7 @@ import Homepage from './Homepage';
 import Login from './Login';
 import PurchaseOrders from "./PurchaseOrders";
 import SignUpForm from "./SignUpForm";
+import Inventory from "./Inventory"
  
  
 function App() {
@@ -27,35 +28,21 @@ function App() {
  //     .then((r) => r.json())
  //     .then((inventories) => setInventory(inventories))
  // }, [])
-  return (
-   <div>
-     <NavBar user={user} onLogout={setUser} />
-     <main>
-       {user ? (
-         <Switch>
-           <Route path="/">
-             <Homepage user={user}/>
-           </Route>
-         </Switch>
-       ) : (
-         <Switch>
-           <Route path="/signup">
-             <SignUpForm setUser={setUser} />
-           </Route>
-           <Route path="/login">
-             <Login setUser={setUser} />
-           </Route>
-           <Route path="/">
-             <Homepage user={user}/> 
-           </Route>
-           <Route path="/purhcaseOrders">
-             <PurchaseOrders />
-           </Route>
-         
-         </Switch>
-       )}
-     </main>
-   </div>
+ return (
+  <div>
+    <Router >
+      <div className="App">
+        <NavBar user={user} onLogout={setUser}/>
+        <Routes>
+          <Route path="/" element={<Homepage user={user}/>}/>
+          <Route path="/purhcaseOrders" element={<PurchaseOrders />}/>
+          <Route path="/Inventory" element={<Inventory user={user}/>}/>
+          <Route path="/signup" element={<SignUpForm setUser={setUser} />}/>
+          <Route path="/login" element={<Login setUser={setUser} />} />
+        </Routes>
+      </div>
+    </Router>
+  </div>
  );
 }
  
