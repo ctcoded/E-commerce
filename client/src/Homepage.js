@@ -1,23 +1,11 @@
 import React from "react";
-
-function Homepage() {
-    return (
-        <div className='homeContainer'>
-            <div className='aboutInventoryApp'>
-                <h2 className="home-header">About This App</h2>
-                <p>
-                    Welcome to this app!
-                </p>
-                <p>
-                    Stuff and things
-                </p>
-                <p>
-                    Please log in to access your acount info!
-                </p>
-            </div>
-            <h3 className='home-header'>Staff</h3>
-        </div>
-    )
+ 
+function Homepage({user}) {
+   if (user) {
+       return <h1>Welcome to this app {user.username}!</h1>
+   } else {
+       return <h1>Please login or signup to access our features</h1>
+   }
 }
-
+ 
 export default Homepage;

@@ -1,20 +1,52 @@
-import React from "react";
-
-function Login() {
-    return (
-    <div>
-      <h1>Login</h1>
-      <form>
-        <div>
-          <input type="text" name="username" placeholder="Username" />
-        </div>
-        <div>
-          <input type="password" name="password" placeholder="Password" />
-        </div>
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
-    )
+import React, {useState} from "react";
+ 
+function Login({setUser}) {
+ const [username, setUsername] = useState("")
+ const [password, setPassword] = useState("")
+ 
+ function handleSubmit(e) {
+   e.preventDefault();
+   const user = {
+     username,
+     password
+   }
+   fetch(`/login`, {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(user),
+   })
+   .then(r => {
+     if (r.ok) {
+       r.json().then((user) => setUser(user))
+     }
+   });
+ }
+   return (
+     <div>
+       <form onSubmit={handleSubmit}>
+         <h1>Login</h1>
+           <label htmlFor="username">Username</label>
+           <input
+             type="text"
+             id="username"
+             autoComplete="off"
+             value={username}
+             onChange={(e) => setUsername(e.target.value)}
+           />
+           <label htmlFor="password">Password</label>
+             <input
+               type="password"
+               id="password"
+               autoComplete="current-password"
+               value={password}
+               onChange={(e) => setPassword(e.target.value)}
+             />
+             <button type="submit">Login</button>
+       </form>
+     </div>
+   );
 }
-
+ 
 export default Login;
