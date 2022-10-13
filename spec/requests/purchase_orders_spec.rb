@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "PurhcaseOrders", type: :request do
+RSpec.describe "PurchaseOrders", type: :request do
   describe "GET /index" do
     pending "add some examples (or delete) #{__FILE__}"
   end
