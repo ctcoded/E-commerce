@@ -68,8 +68,6 @@ ActiveRecord::Schema.define(version: 2022_10_13_221711) do
     t.index ["user_id"], name: "index_purchase_orders_on_user_id"
   end
 
-
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"

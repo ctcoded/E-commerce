@@ -1,7 +1,6 @@
 import React from "react";
  
 function Homepage({user}) {
-    console.log(user)
    if (user) {
        return <h1>Welcome to this app {user.username}!</h1>
    } else {

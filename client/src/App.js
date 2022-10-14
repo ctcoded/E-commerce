@@ -15,21 +15,27 @@ function App() {
  const [user, setUser] = useState(null)
  const [inventory, setInventory] = useState([])
  useEffect(() => {
+  if(user !== null) {
    fetch("/me")
      .then((r) => {
        if (r.ok) {
          r.json().then((user) => setUser(user));
        }
      });
+    }
  }, []);
- 
- useEffect(() => {
-   fetch("/inventories")
-     .then((r) => r.json())
-     .then((inventories) => setInventory(inventories))
- }, [])
 
- console.log( inventory )
+ useEffect(() => {
+  if(user !== null) {
+    fetch(`/inventories/${user.id}/items`)
+    .then(res => res.json())
+    .then((inventory) => setInventory(inventory))
+  }
+ }, [user])
+
+ console.log(inventory)
+
+
 
  return (
   <div>
@@ -39,7 +45,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage user={user}/>}/>
           <Route path="/purhcaseOrders" element={<PurchaseOrders />}/>
-          <Route path="/inventory" element={<Inventory user={user} inventories={inventory}/>}/>
+          <Route path="/inventory" element={<Inventory user={user} inventory={inventory} />}/>
           <Route path="/signup" element={<SignUpForm setUser={setUser} />}/>
           <Route path="/login" element={<Login setUser={setUser} />} />
         </Routes>

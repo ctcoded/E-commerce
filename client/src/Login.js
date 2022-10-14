@@ -11,8 +11,8 @@ function Login({setUser}) {
   //    password
   //  }
     const user = {
-      username: "cesart123",
-      password: "pwssuck"
+      username,
+      password
     }
    fetch(`/login`, {
      method: "POST",

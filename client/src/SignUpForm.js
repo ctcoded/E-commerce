@@ -22,7 +22,9 @@ function SignUpForm({setUser}) {
                    r.json().then((user) => setUser(user));
                }
            })
+           console.log(user)
        }
+
  
        return (
        <div>
