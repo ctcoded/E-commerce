@@ -45,7 +45,7 @@ function App() {
 
 //  console.log(vendors)
 
-//  console.log(inventory.items)
+ console.log(inventory)
 
 
 
@@ -57,7 +57,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage user={user}/>}/>
           <Route path="/vendors" element={<Vendors />}/>
-          <Route path="/inventory" element={<Inventory user={user} inventory={inventory.items} />}/>
+          <Route path="/inventory" element={<Inventory user={user} inventory={inventory} />}/>
           <Route path="/signup" element={<SignUpForm setUser={setUser} />}/>
           <Route path="/login" element={<Login setUser={setUser} />} />
         </Routes>
