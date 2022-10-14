@@ -11,14 +11,14 @@ Rails.application.routes.draw do
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
 
-  post "/signup", to: "users#create"
   get "/me", to: "users#show"
-  get "/allusers", to: "users#index"
 
-  get "/inventories/:id", to: "inventories#show"
+  # get "/inventories/:id", to: "inventories#show"
 
-  get "/inventories/:id/items", to: "items#index"
-
+  # get "/inventories/:user_id/items", to: "items#index"
+  get "/inventories/:user_id", to: "inventory#show"
+  
+  post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 

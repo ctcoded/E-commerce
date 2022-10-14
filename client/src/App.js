@@ -14,20 +14,20 @@ import Inventory from "./Inventory"
 function App() {
  const [user, setUser] = useState(null)
  const [inventory, setInventory] = useState([])
- useEffect(() => {
-  if(user !== null) {
-   fetch("/me")
-     .then((r) => {
-       if (r.ok) {
-         r.json().then((user) => setUser(user));
-       }
-     });
-    }
- }, []);
+//  useEffect(() => {
+//   if(user !== null) {
+//    fetch("/me")
+//      .then((r) => {
+//        if (r.ok) {
+//          r.json().then((user) => setUser(user));
+//        }
+//      });
+//     }
+//  }, []);
 
  useEffect(() => {
   if(user !== null) {
-    fetch(`/inventories/${user.id}/items`)
+    fetch(`/inventories/${user.id}`)
     .then(res => res.json())
     .then((inventory) => setInventory(inventory))
   }
