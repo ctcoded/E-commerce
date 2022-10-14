@@ -27,8 +27,8 @@ puts "✅ Done seeding Business Inventories!"
 
 
 puts "Seeding Vendors..."
-v1=Vendor.create(name: "BikeSupply" )
-v2=Vendor.create(name: "FoodSupply")
+v1=Vendor.create(name: "BikeSupply", user_id: u1.id)
+v2=Vendor.create(name: "FoodSupply", user_id: u2.id)
 puts "✅ Done seeding Vendor"
 
 

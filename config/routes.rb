@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :contacts
-  resources :purchase_orders
+  # resources :contacts
+  # resources :purchase_orders
   # resources :addresses
   # resources :contacts
-  # resources :vendors
+  resources :vendors, only: [:index, :show]
   # resources :purhcase_orders
   resources :users, only: [:index, :show, :create]
   resources :inventories, only: [:index, :show, :create]
@@ -15,9 +15,11 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   get "/allusers", to: "users#index"
 
-  get "/inventories/:id", to: "inventories#show"
-
+  get "/inventories/:id/items", to: "inventories#show"
   get "/inventories/:id/items", to: "items#index"
+
+  get "/vendors/:id/name", to: "vendors#show"
+  get "/vendors/:id/name", to: "vendors#index"
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

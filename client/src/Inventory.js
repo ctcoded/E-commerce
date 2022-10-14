@@ -1,6 +1,5 @@
 import React from "react"
 import ItemCard from "./ItemCard"
-import { Dropdown } from "semantic-ui-react"
 
 function Inventory({user, inventory}) {
     console.log(inventory)
