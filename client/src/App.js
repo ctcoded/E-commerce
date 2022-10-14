@@ -35,17 +35,17 @@ function App() {
   }
  }, [user])
 
-//  useEffect(() => {
-//   if(user !== null) {
-//     fetch(`/vendors/${user.id}/name`)
-//     .then(res => res.json())
-//     .then((vendor) => setVendors(vendor))
-//   }
-//  }, [user])
+ useEffect(() => {
+  if(user !== null) {
+    fetch(`/vendors`)
+    .then(res => res.json())
+    .then((vendor) => setVendors(vendor))
+  }
+ }, [user])
 
-//  console.log(vendors)
+ console.log(vendors)
 
- console.log(inventory)
+//  console.log(inventory)
 
 
 

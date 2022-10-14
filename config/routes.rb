@@ -13,11 +13,10 @@ Rails.application.routes.draw do
 
   get "/me", to: "users#show"
 
-
-  # get "/inventories/:id", to: "inventories#show"
-
-  get "/inventories/:user_id/items", to: "items#index"
+  # get "/inventories/:user_id/items", to: "items#index"
   get "/inventories/:user_id/", to: "inventory#show"
+
+  get "/vendors/", to: "vendors#index"
   
   post "/signup", to: "users#create"
   
