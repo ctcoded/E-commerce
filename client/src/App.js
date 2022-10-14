@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import NavBar from './NavBar';
 import Homepage from './Homepage';
 import Login from './Login';
-import PurchaseOrders from "./PurchaseOrders";
+import Vendors from "./Vendors";
 import SignUpForm from "./SignUpForm";
 import Inventory from "./Inventory"
  
@@ -14,16 +14,18 @@ import Inventory from "./Inventory"
 function App() {
  const [user, setUser] = useState(null)
  const [inventory, setInventory] = useState([])
-//  useEffect(() => {
-//   if(user !== null) {
-//    fetch("/me")
-//      .then((r) => {
-//        if (r.ok) {
-//          r.json().then((user) => setUser(user));
-//        }
-//      });
-//     }
-//  }, []);
+ const [vendors, setVendors] = useState([])
+ useEffect(() => {
+  if(user !== null) {
+   fetch("/me")
+     .then((r) => {
+       if (r.ok) {
+         r.json().then((user) => setUser(user));
+       }
+     });
+    }
+ }, []);
+
 
  useEffect(() => {
   if(user !== null) {
@@ -33,7 +35,17 @@ function App() {
   }
  }, [user])
 
- console.log(inventory)
+//  useEffect(() => {
+//   if(user !== null) {
+//     fetch(`/vendors/${user.id}/name`)
+//     .then(res => res.json())
+//     .then((vendor) => setVendors(vendor))
+//   }
+//  }, [user])
+
+//  console.log(vendors)
+
+//  console.log(inventory.items)
 
 
 
@@ -44,8 +56,8 @@ function App() {
         <NavBar user={user} onLogout={setUser}/>
         <Routes>
           <Route path="/" element={<Homepage user={user}/>}/>
-          <Route path="/purhcaseOrders" element={<PurchaseOrders />}/>
-          <Route path="/inventory" element={<Inventory user={user} inventory={inventory} />}/>
+          <Route path="/vendors" element={<Vendors />}/>
+          <Route path="/inventory" element={<Inventory user={user} inventory={inventory.items} />}/>
           <Route path="/signup" element={<SignUpForm setUser={setUser} />}/>
           <Route path="/login" element={<Login setUser={setUser} />} />
         </Routes>
