@@ -24,14 +24,12 @@ function App() {
  }, []);
  
  useEffect(() => {
-  if (user != null) {
-   fetch(`/inventories/`)
+   fetch("/inventories")
      .then((r) => r.json())
-     .then((inventories) => console.log(inventories))
-  }
- }, [user])
+     .then((inventories) => setInventory(inventories))
+ }, [])
 
- console.log(inventory)
+ console.log( inventory )
 
  return (
   <div>
@@ -41,7 +39,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage user={user}/>}/>
           <Route path="/purhcaseOrders" element={<PurchaseOrders />}/>
-          <Route path="/Inventory" element={<Inventory user={user} inventories={inventory}/>}/>
+          <Route path="/inventory" element={<Inventory user={user} inventories={inventory}/>}/>
           <Route path="/signup" element={<SignUpForm setUser={setUser} />}/>
           <Route path="/login" element={<Login setUser={setUser} />} />
         </Routes>

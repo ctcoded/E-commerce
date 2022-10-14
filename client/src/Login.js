@@ -6,10 +6,14 @@ function Login({setUser}) {
  
  function handleSubmit(e) {
    e.preventDefault();
-   const user = {
-     username,
-     password
-   }
+  //  const user = {
+  //    username,
+  //    password
+  //  }
+    const user = {
+      username: "cesart123",
+      password: "pwssuck"
+    }
    fetch(`/login`, {
      method: "POST",
      headers: {

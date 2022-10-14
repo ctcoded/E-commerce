@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2022_10_13_221711) do
     t.bigint "inventory_id", null: false
     t.string "name"
     t.string "description"
-    t.bigint "vendor_id", null: false
+    t.bigint "vendor_id"
     t.string "image"
     t.integer "on_hand"
     t.integer "committed"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2022_10_13_221711) do
     t.index ["user_id"], name: "index_purchase_orders_on_user_id"
   end
 
+
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -84,6 +86,5 @@ ActiveRecord::Schema.define(version: 2022_10_13_221711) do
   add_foreign_key "addresses", "vendors"
   add_foreign_key "inventories", "users"
   add_foreign_key "items", "inventories"
-  add_foreign_key "items", "vendors"
   add_foreign_key "purchase_orders", "users"
 end

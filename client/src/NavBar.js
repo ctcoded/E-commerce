@@ -42,7 +42,7 @@ function Navbar({user, onLogout}) {
              </Link>
            </Menu.Item>
            <Menu.Item>
-             <Link to="/Inventory">
+             <Link to="/inventory">
                <Button color="blue" size="huge">Inventory</Button>
              </Link>
            </Menu.Item>
