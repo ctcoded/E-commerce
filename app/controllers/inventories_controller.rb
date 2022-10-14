@@ -7,7 +7,7 @@ class InventoriesController < ApplicationController
 
     def show
         inventory = Inventory.find(params[:id])
-        render json: inventory, status: :ok
+        render json: inventory.items, status: :ok
     end
 
     # def updated_at

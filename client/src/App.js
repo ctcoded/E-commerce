@@ -26,9 +26,10 @@ function App() {
     }
  }, []);
 
+
  useEffect(() => {
   if(user !== null) {
-    fetch(`/inventories/${user.id}/items`)
+    fetch(`/inventories/${user.id}`)
     .then(res => res.json())
     .then((inventory) => setInventory(inventory))
   }
