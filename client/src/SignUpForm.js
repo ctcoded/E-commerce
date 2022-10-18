@@ -30,7 +30,7 @@ function SignUpForm({setUser}) {
        <div>
            <Form onSubmit={handleSubmit}>
                <Form.Field>
-                   <Label color="blue" size="huge" pointing="below" htmlFor="username">Username</Label>
+                   <Label color="teal" size="huge" pointing="below" htmlFor="username">Username</Label>
                    <Input
                        size="huge"
                        placeholder="Username"
@@ -41,7 +41,7 @@ function SignUpForm({setUser}) {
                    />
                </Form.Field>
                <Form.Field>
-                   <Label color="blue" size="huge" pointing="below" htmlFor="password">Password</Label>
+                   <Label color="teal" size="huge" pointing="below" htmlFor="password">Password</Label>
                    <Input
                        size="huge"
                        placeholder="Password"
@@ -52,7 +52,7 @@ function SignUpForm({setUser}) {
                    />
                </Form.Field>
                <Form.Field>
-                   <Label color="blue" size="huge" pointing="below" htmlFor="business_name">Business Name</Label>
+                   <Label color="teal" size="huge" pointing="below" htmlFor="business_name">Business Name</Label>
                    <Input
                        size="huge"
                        placeholder="Business Name"
@@ -63,7 +63,7 @@ function SignUpForm({setUser}) {
                    />
                </Form.Field>
           
-               <Button color="pink" size="huge" type='submit'>Submit</Button>
+               <Button color="teal" size="huge" type='submit'>Submit</Button>
            </Form>
        </div>
        )

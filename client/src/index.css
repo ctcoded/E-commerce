@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: red;
 }
 
 code {
@@ -20,19 +19,21 @@ code {
   width: 45%;
 }
 
-.homeContainer {
+.inner-app{
   margin: auto;
-  padding: 30px;
-  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  background-color: rgba(238, 155, 0);
+}
+.app {
+  margin: auto;
+  padding: 50px;
+  background-color: rgba(202, 103, 2);
 }
 
-.aboutInventoryApp {
-  margin: auto;
-  font-size: 20px;
-}
 
-.home-header {
-  font-size: 30px
+
+.homepage {
+  background-color: pink;
 }
 
 #item-header {
@@ -50,48 +51,18 @@ code {
 }
 
  #item-collection {
-  margin: 2rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: auto ;
 } 
 
-.card {
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 15rem;
-  height: 25rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-  box-shadow: 3px 4px #e04b52;
-} 
 
-.item-avatar {
-  justify-self: center;
-  height: 12rem;
-  width: auto;
-} 
-
-button {
-  position: relative;
-  background-color: #e04b52;
-  border: none;
-  border-radius: 5px;
-  height: 3rem;
-  width: max-content;
-  color: whitesmoke;
-  font-size: 18px;
-  justify-self: center;
-} 
 
 .buttonContainer {
   text-align: center;
   padding: 1rem;
 }
 
-button:hover {
-  background-color: whitesmoke;
-  border: #e04b52 solid 1px;
-  color: #e04b52;
-}
 
 .container {
   padding: 1rem;

@@ -13,23 +13,23 @@ function Navbar({user, onLogout}) {
    }
  
    return (
-       <div>
+       <div className="navbar">
        <Menu>
          { user === null ? (
          <>
            <Menu.Item>
              <Link to="/">
-               <Icon name="home" size="huge" />
+               <Icon name="home" size="huge" color="yellow" />
              </Link>
            </Menu.Item>
            <Menu.Item>
              <Link to="/signup">
-               <Button  color="blue" size="huge">Sign Up</Button>
+               <Button  color="yellow" size="huge">Sign Up</Button>
              </Link>
            </Menu.Item>
            <Menu.Item>
              <Link to="/login">
-               <Button color="blue" size="huge">Log In</Button>
+               <Button color="yellow" size="huge">Log In</Button>
              </Link>
            </Menu.Item>
         
@@ -38,22 +38,22 @@ function Navbar({user, onLogout}) {
          <>
            <Menu.Item>
              <Link to="/">
-               <Icon name="home" size="huge" />
+               <Icon color="yellow" name="home" size="huge" />
              </Link>
            </Menu.Item>
            <Menu.Item>
              <Link to="/inventory">
-               <Button color="blue" size="huge">Inventory</Button>
+               <Button color="yellow" size="huge">Inventory</Button>
              </Link>
            </Menu.Item>
            <Menu.Item>
              <Link to="/vendors">
-               <Button color="blue" size="huge"> Vendors</Button>
+               <Button color="yellow" size="huge"> Vendors</Button>
              </Link>
            </Menu.Item>
           
            <Menu.Item>
-             <Button variant="outline" onClick={handleLogoutClick}>
+             <Button color="yellow" variant="outline" onClick={handleLogoutClick}>
                Logout
              </Button>
            </Menu.Item>

@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2022_10_13_221711) do
   end
 
   create_table "vendors", force: :cascade do |t|
-    t.string "name"
+    t.string "vendor_name"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

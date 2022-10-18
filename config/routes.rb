@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # get "/inventories/:user_id/items", to: "items#index"
   get "/inventories/:user_id/", to: "inventory#show"
 
-  get "/vendors/", to: "vendors#index"
+  get "/vendors/:user_id/", to: "vendors#show"
   
   post "/signup", to: "users#create"
   
