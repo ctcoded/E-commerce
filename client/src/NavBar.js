@@ -43,17 +43,27 @@ function Navbar({user, onLogout}) {
            </Menu.Item>
            <Menu.Item>
              <Link to="/inventory">
-               <Button color="yellow" size="huge">Inventory</Button>
+               <Button color="yellow" size="huge">
+                  Inventory
+                </Button>
              </Link>
            </Menu.Item>
            <Menu.Item>
              <Link to="/vendors">
-               <Button color="yellow" size="huge"> Vendors</Button>
+               <Button color="yellow" size="huge">
+                  Vendors
+                </Button>
              </Link>
            </Menu.Item>
-          
            <Menu.Item>
-             <Button color="yellow" variant="outline" size="huge" onClick={handleLogoutClick}>
+             <Link to="/purchaseOrders">
+               <Button color="yellow" size="huge"> 
+                  Purchase Orders
+                </Button>
+             </Link>
+           </Menu.Item>
+           <Menu.Item>
+             <Button color="yellow" size="huge" onClick={handleLogoutClick}>
                Logout
              </Button>
            </Menu.Item>
