@@ -53,7 +53,8 @@ code {
  #item-collection {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  margin: auto ;
+  margin: auto;
+  padding: auto;
 } 
 
 

@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2022_10_13_221711) do
 
   create_table "items", force: :cascade do |t|
     t.bigint "inventory_id", null: false
+    t.bigint "purchase_order_id"
     t.string "name"
     t.string "description"
     t.bigint "vendor_id"
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2022_10_13_221711) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["inventory_id"], name: "index_items_on_inventory_id"
+    t.index ["purchase_order_id"], name: "index_items_on_purchase_order_id"
     t.index ["vendor_id"], name: "index_items_on_vendor_id"
   end
 

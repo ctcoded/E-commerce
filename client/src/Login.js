@@ -59,7 +59,7 @@ function Login({setUser}) {
           </Segment>
         </Form>
         <Message>
-          New to us? <Link to="/signup">Sign up</Link>
+          New to us? <Link to="/signup"> Sign up here! </Link>
         </Message>
       </Grid.Column>
     </Grid>

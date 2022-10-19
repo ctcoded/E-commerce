@@ -20,7 +20,9 @@ function Inventory({user, inventory}) {
 
         return <div id="item-collection">{itemCards}</div>
     } else {
-        <h1>please log back in</h1>
+        return (
+        <h1>Uh oh, it looks like you've been logged out! Please log back in</h1>
+        )
     }
 }
 

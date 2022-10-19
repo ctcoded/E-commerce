@@ -7,7 +7,7 @@ class VendorsController < ApplicationController
 
     def show
         vendor = Vendor.find(params[:id])
-        render json: vendor.name, status: :ok
+        render json: vendor, status: :ok
     end
 
 end

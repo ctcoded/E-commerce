@@ -1,3 +1,5 @@
 class VendorSerializer < ActiveModel::Serializer
-  attributes :id, :vendor_name, :contact, :order_history, :payment
+  attributes :id, :vendor_name
+
+  belongs_to :user
 end

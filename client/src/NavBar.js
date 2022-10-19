@@ -53,7 +53,7 @@ function Navbar({user, onLogout}) {
            </Menu.Item>
           
            <Menu.Item>
-             <Button color="yellow" variant="outline" onClick={handleLogoutClick}>
+             <Button color="yellow" variant="outline" size="huge" onClick={handleLogoutClick}>
                Logout
              </Button>
            </Menu.Item>
