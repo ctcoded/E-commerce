@@ -6,7 +6,7 @@ class PurchaseOrdersController < ApplicationController
     end
 
     def show
-        purchase_order = PurchaseOrder.find(params[:id])
+        purchase_order = PurchaseOrder.find_by(user_id: params[:id])
         render json: purchase_order, status: :ok
     end
 

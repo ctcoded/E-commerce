@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # resources :contacts
-  # resources :purchase_orders
+  resources :purchase_orders
   # resources :addresses
   # resources :contacts
   resources :vendors, only: [:index, :show]
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get "/vendors/:user_id/", to: "vendors#show"
 
-  get "/purchase_orders/:user_id/", to: "purchase_orders#index"
+  # get "/purchase_orders/:user_id/", to: "purchase_orders#index"
   get "/purchase_orders/:user_id/", to: "purchase_orders#show"
   
   post "/signup", to: "users#create"

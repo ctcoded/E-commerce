@@ -1,3 +1,5 @@
 class PurchaseOrderSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :order_notes
+
+  belongs_to :user
 end
