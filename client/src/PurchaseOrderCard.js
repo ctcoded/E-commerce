@@ -1,12 +1,11 @@
 import React from "react"
-import { Card, Button, Image } from "semantic-ui-react"
+import { Card, Button } from "semantic-ui-react"
 
-function ItemCard({name, description, image, on_hand, committed, total_sold, vendor_id}) {
-    // console.log({vendor_id})
+
+function PurchaseOrderCard({name, description, on_hand, committed, total_sold, vendor_id}) {
     return (
         <Card>
             <Card.Content>
-                <Image floated='center' size='mini' src={image} alt={name} className="card-avatar" />
                 <Card.Header>{name}</Card.Header>
                 <Card.Description> Description: {description} </Card.Description>
                 <Card.Description> On hand: {on_hand} </Card.Description>
@@ -17,15 +16,15 @@ function ItemCard({name, description, image, on_hand, committed, total_sold, ven
                 <Card.Content extra>
                     <div className='ui two buttons'>
                         <Button color = 'red' className="del-btn">
-                            Delete from Inventory
+                           something else
                         </Button>
                         <Button color = 'yellow' className="like-btn">
-                            Add to PO 
+                            Add to Inventory
                         </Button>                            
                     </div>
             </Card.Content>
         </Card>
-    );
-    }
+);
+}
 
-export default ItemCard;
+export default PurchaseOrderCard;

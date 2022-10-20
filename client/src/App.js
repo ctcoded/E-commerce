@@ -9,7 +9,7 @@ import Login from './Login';
 import Vendors from "./Vendors";
 import SignUpForm from "./SignUpForm";
 import Inventory from "./Inventory"
-// import PurhcaseOrders from "./Vendors";
+import PurchaseOrders from "./PurchaseOrder";
  
  
 function App() {
@@ -70,8 +70,9 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/" element={<Homepage user={user}/>}/>
-          <Route path="/vendors" element={<Vendors />}/>
+          <Route path="/vendors" element={<Vendors user={user} vendor={vendors}/>}/>
           <Route path="/inventory" element={<Inventory user={user} inventory={inventory} />}/>
+          <Route path="/purchaseOrders" element={<PurchaseOrders user={user} purchaseOrders={purchaseOrders}/>}/>
           <Route path="/signup" element={<SignUpForm setUser={setUser} />}/>
         </Routes>
       </div>
