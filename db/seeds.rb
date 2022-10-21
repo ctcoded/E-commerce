@@ -44,14 +44,14 @@ a4=Address.create(vendor_id: v4.id, street_1: "456 Bakers Ln." , street_2: "n/a"
 puts "✅ Done seeding Addresses"
 
 puts "Seeding PurchaseOrder..."
-o1=PurchaseOrder.create(user_id: u1.id, order_notes: "These are all bike parts")
-o2=PurchaseOrder.create(user_id: u2.id, order_notes: "These are all food items")
-o3=PurchaseOrder.create(user_id: u1.id, order_notes: "These are all bike parts")
-o4=PurchaseOrder.create(user_id: u2.id, order_notes: "These are all food items")
-o5=PurchaseOrder.create(user_id: u1.id, order_notes: "These are all bike parts")
-o6=PurchaseOrder.create(user_id: u2.id, order_notes: "These are all food items")
-o7=PurchaseOrder.create(user_id: u1.id, order_notes: "These are all bike parts")
-o8=PurchaseOrder.create(user_id: u2.id, order_notes: "These are all food items")
+o1=PurchaseOrder.create(user_id: u1.id, order_notes: "These are all bike parts 1")
+o2=PurchaseOrder.create(user_id: u2.id, order_notes: "These are all food items 1")
+o3=PurchaseOrder.create(user_id: u1.id, order_notes: "These are all bike parts 2")
+o4=PurchaseOrder.create(user_id: u2.id, order_notes: "These are all food items 2")
+o5=PurchaseOrder.create(user_id: u1.id, order_notes: "These are all bike parts 3")
+o6=PurchaseOrder.create(user_id: u2.id, order_notes: "These are all food items 3")
+o7=PurchaseOrder.create(user_id: u1.id, order_notes: "These are all bike parts 4")
+o8=PurchaseOrder.create(user_id: u2.id, order_notes: "These are all food items 4")
 puts "✅ Done seeding PurchaseOrder"
 
 

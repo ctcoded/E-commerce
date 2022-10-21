@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
     # before_action :authorize, only: [:show]
   
+    # def show
+    #     user = User.find_by(id: session[:user_id])
+    #     render json: user
+    # end
+
     def show
-        user = User.find_by(id: session[:user_id])
-        render json: user
+      user = User.find_by(params[:id])
+      render json: user.purchase_orders, status: :ok
+    
     end
    
     def create

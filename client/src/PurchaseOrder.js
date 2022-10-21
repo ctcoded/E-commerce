@@ -1,29 +1,42 @@
 import React from "react"
+import { Dropdown } from 'semantic-ui-react'
 import PurchaseOrderCard from "./PurchaseOrderCard"
 
 function PurchaseOrders({user, purchaseOrders}) {
+    console.log(purchaseOrders)
 
-    const itemCards = purchaseOrders.map((item) => (
-        <PurchaseOrderCard
-            key={item.id}
-            name={item.name}
-            description={item.description}
-            image={item.image}
-            on_hand={item.on_hand}
-            committed={item.committed}
-            total_sold={item.total_sold}
-            vendor_id={item.vendor_id}
+    const orderNotes = purchaseOrders.map(notes => notes.order_notes).forEach( note => {
+        <Dropdown.Item
+            text = {note}
         />
+    });
 
-    ))
-    if (user !== null ){
+    return (
+       <Dropdown 
+        placeholder="Select Purchase Order"
+        fluid
+        selection
+        >
+            <Dropdown.Menu>{orderNotes}</Dropdown.Menu>
+        </Dropdown>
+        
+    )
 
-        return <div id="item-collection">{itemCards}</div>
-    } else {
-        return (
-        <h1>Uh oh, it looks like you've been logged out! Please log back in</h1>
-        )
-    }
+    // const poCards = purchaseOrders.map((order) => (
+    //     <PurchaseOrderCard
+    //         key={order.id}
+    //         order_notes={order.order_notes}
+    //     />
+
+    // ))
+    // if (user !== null ){
+
+    //     return <div id="item-collection">{poCards}</div>
+    // } else {
+    //     return (
+    //     <h1>Uh oh, it looks like you've been logged out! Please log back in</h1>
+    //     )
+    // }
 }
 
 export default PurchaseOrders;

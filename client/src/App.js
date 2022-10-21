@@ -17,16 +17,16 @@ function App() {
  const [inventory, setInventory] = useState([])
  const [vendors, setVendors] = useState("")
  const [purchaseOrders, setPurchaseOrders] = useState([])
- useEffect(() => {
-  if(user !== null) {
-   fetch("/me")
-     .then((r) => {
-       if (r.ok) {
-         r.json().then((user) => setUser(user));
-       }
-     });
-    }
- }, []);
+//  useEffect(() => {
+//   if(user !== null) {
+//    fetch("/me")
+//      .then((r) => {
+//        if (r.ok) {
+//          r.json().then((user) => setUser(user));
+//        }
+//      });
+//     }
+//  }, []);
 
 
  useEffect(() => {
@@ -47,7 +47,7 @@ function App() {
 
  useEffect(() => {
   if(user !== null) {
-    fetch(`/purchase_orders/${user.id}`)
+    fetch(`/user/${user.id}`)
     .then(res => res.json())
     .then((purchaseOrder) => setPurchaseOrders(purchaseOrder))
   }
@@ -55,7 +55,7 @@ function App() {
 
  console.log(purchaseOrders)
 
- console.log(vendors)
+//  console.log(vendors)
 
 //  console.log(inventory)
 

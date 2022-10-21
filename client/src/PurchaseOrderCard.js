@@ -1,26 +1,25 @@
 import React from "react"
+import { useEffect } from "react"
 import { Card, Button } from "semantic-ui-react"
 
 
-function PurchaseOrderCard({name, description, on_hand, committed, total_sold, vendor_id}) {
+function PurchaseOrderCard({order_notes}) {
+    // function orders () {
+    //     useEffect(() => {
+    //         fetch(`/`)
+    //     })
+    // }
     return (
         <Card>
             <Card.Content>
-                <Card.Header>{name}</Card.Header>
-                <Card.Description> Description: {description} </Card.Description>
-                <Card.Description> On hand: {on_hand} </Card.Description>
-                <Card.Description> committed: {committed} </Card.Description>
-                <Card.Description> total_sold: {total_sold} </Card.Description>
-                {/* <p> vendor Id: {vendor_id} </p> */}
+                <Card.Header>{order_notes}</Card.Header>
                 </Card.Content>
                 <Card.Content extra>
                     <div className='ui two buttons'>
-                        <Button color = 'red' className="del-btn">
-                           something else
+                        <Button color = 'red' className="del-btn" onClick= {console.log('hello')}>
+                           Inspect Order
                         </Button>
-                        <Button color = 'yellow' className="like-btn">
-                            Add to Inventory
-                        </Button>                            
+                                                 
                     </div>
             </Card.Content>
         </Card>
